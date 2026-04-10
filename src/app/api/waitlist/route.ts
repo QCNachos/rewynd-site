@@ -1,6 +1,19 @@
 import { NextResponse } from "next/server";
+import { headers } from "next/headers";
 import { getSupabase } from "@/lib/supabase";
 import { validateWaitlist } from "@/lib/validations";
+
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW = "1 hour";
+
+async function getClientIp(): Promise<string> {
+  const h = await headers();
+  return (
+    h.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    h.get("x-real-ip") ||
+    "unknown"
+  );
+}
 
 export async function POST(request: Request) {
   try {
@@ -12,6 +25,21 @@ export async function POST(request: Request) {
     }
 
     const supabase = getSupabase();
+    const ip = await getClientIp();
+
+    const { data: allowed } = await supabase.rpc("check_rate_limit", {
+      p_table: "site_waitlist_signups",
+      p_ip: ip,
+      p_max: RATE_LIMIT_MAX,
+      p_window: RATE_LIMIT_WINDOW,
+    });
+
+    if (!allowed) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again later." },
+        { status: 429 }
+      );
+    }
 
     const { data: existing } = await supabase
       .from("site_waitlist_signups")
@@ -33,6 +61,7 @@ export async function POST(request: Request) {
       company: result.data.company || null,
       notes: result.data.notes || null,
       source: "rewynd.tech",
+      ip_address: ip,
     });
 
     if (error) {
