@@ -21,6 +21,14 @@ export const metadata: Metadata = {
   title: "Rewynd — Synthetic Markets Protocol",
   description:
     "Rewynd creates time-compressed, tradable synthetic markets shaped by historical structure, world events, and agent behavior.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Rewynd — Synthetic Markets Protocol",
     description:
