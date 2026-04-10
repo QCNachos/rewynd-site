@@ -17,9 +17,17 @@ export default function Home() {
       </div>
 
       <WhatIsRewyndSection />
-      <WhyItMattersSection />
+
+      <div className="bg-white/[0.015]">
+        <WhyItMattersSection />
+      </div>
+
       <HowItWorksSection />
-      <AudienceSection />
+
+      <div className="bg-white/[0.015]">
+        <AudienceSection />
+      </div>
+
       <DataLayerSection />
 
       <div className="relative z-[1]">
@@ -27,7 +35,10 @@ export default function Home() {
       </div>
 
       <WaitlistSection />
-      <ContactSection />
+
+      <div className="bg-white/[0.015]">
+        <ContactSection />
+      </div>
     </div>
   );
 }

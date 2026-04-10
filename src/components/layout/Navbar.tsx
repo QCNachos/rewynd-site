@@ -14,6 +14,7 @@ const navLinks = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
 
@@ -21,6 +22,27 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -32,7 +54,10 @@ export default function Navbar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen, closeMobileMenu]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     closeMobileMenu();
     const el = document.querySelector(href);
@@ -69,9 +94,16 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="rounded-lg px-4 py-2 text-sm font-medium text-white/50 transition-colors hover:bg-white/5 hover:text-white/80"
+              className={`relative rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:bg-white/5 ${
+                activeSection === link.href
+                  ? "text-white/90"
+                  : "text-white/50 hover:text-white/80"
+              }`}
             >
               {link.label}
+              {activeSection === link.href && (
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-[#00ff88]/70 transition-all duration-300" />
+              )}
             </a>
           ))}
         </div>
@@ -128,7 +160,11 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="flex items-center rounded-lg px-3 py-2.5 text-sm font-medium text-white/50 transition-colors hover:bg-white/5 hover:text-white/80"
+                  className={`flex items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-white/5 ${
+                    activeSection === link.href
+                      ? "text-white/90 bg-white/[0.04]"
+                      : "text-white/50 hover:text-white/80"
+                  }`}
                 >
                   {link.label}
                 </a>

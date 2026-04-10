@@ -7,6 +7,7 @@ interface GradientButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
   size?: "default" | "lg";
   href?: string;
+  uppercase?: boolean;
 }
 
 export default function GradientButton({
@@ -14,11 +15,13 @@ export default function GradientButton({
   variant = "primary",
   size = "default",
   href,
+  uppercase = false,
   className = "",
   ...props
 }: GradientButtonProps) {
-  const baseClasses =
-    "inline-flex items-center justify-center font-bold uppercase tracking-[0.1em] transition-all duration-300 rounded-full";
+  const baseClasses = `inline-flex items-center justify-center font-bold tracking-wide transition-all duration-300 rounded-full ${
+    uppercase ? "uppercase tracking-[0.1em]" : ""
+  }`;
 
   const sizeClasses =
     size === "lg"

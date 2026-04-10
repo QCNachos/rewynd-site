@@ -12,12 +12,9 @@ const footerLinks = {
   company: [
     { label: "About", href: "#protocol" },
     { label: "Contact", href: "#contact" },
-    { label: "Careers", href: "#" },
   ],
   community: [
-    { label: "Twitter", href: "#" },
-    { label: "Discord", href: "#" },
-    { label: "GitHub", href: "#" },
+    { label: "X / Twitter", href: "https://x.com/RewyndProtocol" },
   ],
 };
 
@@ -88,6 +85,8 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-white/30 transition-colors hover:text-white/60"
                   >
                     {link.label}

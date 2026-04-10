@@ -1,4 +1,7 @@
+"use client";
+
 import SectionHeading from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
 
 const steps = [
   {
@@ -6,85 +9,99 @@ const steps = [
     title: "A market world is initialized",
     description:
       "Historical data structures are loaded and parameterized to create a unique market environment with realistic price dynamics.",
-    color: "text-[#00ff88]",
-    borderColor: "border-[#00ff88]/15",
-    glowColor: "shadow-[0_0_40px_rgba(0,255,136,0.04)]",
-    lineColor: "from-[#00ff88]/30",
+    color: "#00ff88",
   },
   {
     number: "02",
     title: "Events and agents shape the environment",
     description:
       "World events inject volatility while AI agents create market pressure, producing dynamic conditions that evolve in real time.",
-    color: "text-[#00f5d4]",
-    borderColor: "border-[#00f5d4]/15",
-    glowColor: "shadow-[0_0_40px_rgba(0,245,212,0.04)]",
-    lineColor: "from-[#00f5d4]/30",
+    color: "#00f5d4",
   },
   {
     number: "03",
     title: "Users trade inside the market",
     description:
       "Execute trades, manage positions, and react to events in a time-compressed environment where weeks unfold in minutes.",
-    color: "text-[#ff69b4]",
-    borderColor: "border-[#ff69b4]/15",
-    glowColor: "shadow-[0_0_40px_rgba(255,105,180,0.04)]",
-    lineColor: "from-[#ff69b4]/30",
+    color: "#ff69b4",
   },
   {
     number: "04",
     title: "New data is produced",
     description:
       "Every market generates unique structured data: trading behavior, event impact metrics, execution patterns, and outcome distributions.",
-    color: "text-[#ff00ff]",
-    borderColor: "border-[#ff00ff]/15",
-    glowColor: "shadow-[0_0_40px_rgba(255,0,255,0.04)]",
-    lineColor: "from-[#ff00ff]/30",
+    color: "#ff00ff",
   },
 ];
 
 export default function HowItWorksSection() {
   return (
     <section id="how" className="px-[5vw] py-[10vh] z-[1] relative">
-      <div className="max-w-[800px] mx-auto">
-        <SectionHeading
-          label="How it works"
-          title="From initialization to"
-          titleAccent="data output"
-          description="Four steps define the lifecycle of every synthetic market."
-        />
+      <div className="max-w-[1000px] mx-auto">
+        <Reveal>
+          <SectionHeading
+            label="How it works"
+            title="From initialization to"
+            titleAccent="data output"
+            description="Four steps define the lifecycle of every synthetic market."
+          />
+        </Reveal>
 
-        <div className="relative">
-          <div className="absolute left-[27px] top-0 bottom-0 w-px bg-gradient-to-b from-[#00ff88]/20 via-[#ff69b4]/10 to-transparent hidden sm:block" />
-
-          <div className="space-y-8">
-            {steps.map((step) => (
-              <div key={step.number} className="relative flex gap-6 group">
+        <div className="space-y-0">
+          {steps.map((step, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <Reveal
+                key={step.number}
+                delay={i * 120}
+                direction={isEven ? "left" : "right"}
+              >
                 <div
-                  className={`relative z-10 w-14 h-14 rounded-2xl bg-[rgba(12,13,16,0.9)] border ${step.borderColor} flex items-center justify-center shrink-0 ${step.glowColor} transition-all duration-500 group-hover:scale-105`}
+                  className={`flex items-start gap-6 sm:gap-10 py-8 ${
+                    i < steps.length - 1
+                      ? "border-b border-white/[0.04]"
+                      : ""
+                  } ${isEven ? "" : "sm:flex-row-reverse sm:text-right"}`}
                 >
-                  <span
-                    className={`text-sm font-bold font-mono ${step.color}`}
+                  <div
+                    className="relative w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-500 hover:scale-110"
+                    style={{
+                      background: `rgba(${hexToRgb(step.color)}, 0.06)`,
+                      border: `1px solid rgba(${hexToRgb(step.color)}, 0.12)`,
+                    }}
                   >
-                    {step.number}
-                  </span>
-                </div>
+                    <span
+                      className="text-sm font-bold font-mono"
+                      style={{ color: step.color }}
+                    >
+                      {step.number}
+                    </span>
+                  </div>
 
-                <div className="flex-1 pb-2">
-                  <h3
-                    className={`font-bold text-lg mb-2 tracking-tight ${step.color}`}
-                  >
-                    {step.title}
-                  </h3>
-                  <p className="text-white/40 text-sm leading-[1.8]">
-                    {step.description}
-                  </p>
+                  <div className="flex-1">
+                    <h3
+                      className="font-bold text-lg mb-2 tracking-tight"
+                      style={{ color: step.color }}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="text-white/40 text-sm leading-[1.8] max-w-[460px]">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
   );
+}
+
+function hexToRgb(hex: string): string {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `${r},${g},${b}`;
 }

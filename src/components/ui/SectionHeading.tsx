@@ -3,6 +3,8 @@ interface SectionHeadingProps {
   title: string;
   titleAccent?: string;
   description?: string;
+  align?: "center" | "left";
+  accentGradient?: string;
 }
 
 export default function SectionHeading({
@@ -10,9 +12,13 @@ export default function SectionHeading({
   title,
   titleAccent,
   description,
+  align = "center",
+  accentGradient = "from-[#00f5d4] to-[#00ff88]",
 }: SectionHeadingProps) {
+  const isCenter = align === "center";
+
   return (
-    <div className="text-center mb-16">
+    <div className={`mb-16 ${isCenter ? "text-center" : "text-left max-w-[700px]"}`}>
       {label && (
         <span className="inline-block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#00ff88]/70 mb-4 font-mono">
           {label}
@@ -21,13 +27,13 @@ export default function SectionHeading({
       <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-5 leading-tight tracking-tight">
         {title}{" "}
         {titleAccent && (
-          <span className="bg-gradient-to-r from-[#00f5d4] to-[#00ff88] bg-clip-text text-transparent">
+          <span className={`bg-gradient-to-r ${accentGradient} bg-clip-text text-transparent`}>
             {titleAccent}
           </span>
         )}
       </h2>
       {description && (
-        <p className="text-[clamp(1rem,1.4vw,1.1rem)] text-white/45 max-w-[600px] mx-auto leading-relaxed">
+        <p className={`text-[clamp(1rem,1.4vw,1.1rem)] text-white/45 leading-relaxed ${isCenter ? "max-w-[600px] mx-auto" : "max-w-[550px]"}`}>
           {description}
         </p>
       )}

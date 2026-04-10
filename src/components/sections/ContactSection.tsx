@@ -7,6 +7,7 @@ import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
 import Textarea from "@/components/ui/Textarea";
 import GradientButton from "@/components/ui/GradientButton";
+import Reveal from "@/components/ui/Reveal";
 
 const categoryOptions = [
   { value: "partnerships", label: "Partnerships" },
@@ -91,99 +92,123 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="px-[5vw] py-[10vh] z-[1] relative">
-      <div className="max-w-[600px] mx-auto">
-        <div className="text-center mb-12">
-          <span className="inline-block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#00f5d4]/70 mb-4 font-mono">
-            Get in touch
-          </span>
-          <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-5 leading-tight tracking-tight">
-            Contact{" "}
-            <span className="bg-gradient-to-r from-[#00f5d4] to-[#00ff88] bg-clip-text text-transparent">
-              us
-            </span>
-          </h2>
-          <p className="text-[clamp(1rem,1.4vw,1.1rem)] text-white/45 max-w-[500px] mx-auto leading-relaxed">
-            Partnerships, investment inquiries, data access, or beta requests.
-          </p>
-        </div>
-
-        <GlassCard accentColor="cyan" hover={false} className="p-8">
-          {submitted ? (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 rounded-full bg-[#00f5d4]/10 border border-[#00f5d4]/20 flex items-center justify-center mx-auto mb-6">
-                <svg
-                  className="w-7 h-7 text-[#00f5d4]"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-white font-bold text-xl mb-2">
-                Message sent
-              </h3>
-              <p className="text-white/40 text-sm">
-                We&apos;ll get back to you shortly.
+      <div className="max-w-[900px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10 items-start">
+          <Reveal direction="left">
+            <div className="lg:sticky lg:top-28">
+              <span className="inline-block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-[#00f5d4]/70 mb-4 font-mono">
+                Get in touch
+              </span>
+              <h2 className="text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold text-white mb-5 leading-tight tracking-tight">
+                Contact{" "}
+                <span className="bg-gradient-to-r from-[#00f5d4] to-[#00ff88] bg-clip-text text-transparent">
+                  us
+                </span>
+              </h2>
+              <p className="text-white/40 text-sm leading-relaxed mb-6">
+                Partnerships, investment inquiries, data access, or beta
+                requests. We&apos;d love to hear from you.
               </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <input
-                type="text"
-                name="company_url"
-                className="hidden"
-                tabIndex={-1}
-                autoComplete="off"
-              />
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Input
-                  name="name"
-                  label="Name"
-                  placeholder="Your name"
-                  error={errors.name}
-                />
-                <Input
-                  name="email"
-                  label="Email"
-                  type="email"
-                  placeholder="you@example.com"
-                  error={errors.email}
-                />
+              <div className="space-y-3 text-sm">
+                <a
+                  href="https://x.com/RewyndProtocol"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white/30 hover:text-white/60 transition-colors"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                  @RewyndProtocol
+                </a>
               </div>
+            </div>
+          </Reveal>
 
-              <Select
-                name="category"
-                label="Category"
-                placeholder="Select a category"
-                options={categoryOptions}
-                error={errors.category}
-              />
+          <Reveal delay={150}>
+            <GlassCard accentColor="cyan" hover={false} className="p-8">
+              {submitted ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 rounded-full bg-[#00f5d4]/10 border border-[#00f5d4]/20 flex items-center justify-center mx-auto mb-6">
+                    <svg
+                      className="w-7 h-7 text-[#00f5d4]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-white font-bold text-xl mb-2">
+                    Message sent
+                  </h3>
+                  <p className="text-white/40 text-sm">
+                    We&apos;ll get back to you shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <input
+                    type="text"
+                    name="company_url"
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
 
-              <Textarea
-                name="message"
-                label="Message"
-                placeholder="Tell us what you're interested in..."
-                error={errors.message}
-              />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <Input
+                      name="name"
+                      label="Name"
+                      placeholder="Your name"
+                      error={errors.name}
+                    />
+                    <Input
+                      name="email"
+                      label="Email"
+                      type="email"
+                      placeholder="you@example.com"
+                      error={errors.email}
+                    />
+                  </div>
 
-              <GradientButton
-                type="submit"
-                variant="primary"
-                className="w-full"
-                disabled={loading}
-              >
-                {loading ? "Sending..." : "Send Message"}
-              </GradientButton>
-            </form>
-          )}
-        </GlassCard>
+                  <Select
+                    name="category"
+                    label="Category"
+                    placeholder="Select a category"
+                    options={categoryOptions}
+                    error={errors.category}
+                  />
+
+                  <Textarea
+                    name="message"
+                    label="Message"
+                    placeholder="Tell us what you're interested in..."
+                    error={errors.message}
+                  />
+
+                  <GradientButton
+                    type="submit"
+                    variant="primary"
+                    className="w-full"
+                    disabled={loading}
+                  >
+                    {loading ? "Sending..." : "Send Message"}
+                  </GradientButton>
+                </form>
+              )}
+            </GlassCard>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
