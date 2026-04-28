@@ -4,9 +4,11 @@ import Image from "next/image";
 
 const footerLinks = {
   protocol: [
-    { label: "Synthetic Markets", href: "#protocol" },
-    { label: "How It Works", href: "#how" },
-    { label: "Data Layer", href: "#data" },
+    { label: "Markets", href: "#markets" },
+    { label: "Protocol", href: "#protocol" },
+    { label: "Lifecycle", href: "#how" },
+    { label: "Launch", href: "#launch" },
+    { label: "Data trail", href: "#data" },
     { label: "Waitlist", href: "#waitlist" },
   ],
   company: [
@@ -35,8 +37,8 @@ export default function Footer() {
               <span className="text-lg font-bold text-white">Rewynd</span>
             </div>
             <p className="text-sm text-white/40 leading-relaxed max-w-[280px]">
-              Building the protocol layer for synthetic markets.
-              Time-compressed, tradable, and intelligent.
+              Trading-first synthetic markets on Solana, with token-like surfaces,
+              creator launches, onchain-first settlement.
             </p>
           </div>
 

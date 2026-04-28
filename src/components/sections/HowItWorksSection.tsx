@@ -4,36 +4,36 @@ import Reveal from "@/components/ui/Reveal";
 const steps = [
   {
     number: "01",
-    title: "A market world is initialized",
+    title: "Market creation",
     description:
-      "Historical data structures are loaded and parameterized to create a unique market environment with realistic price dynamics.",
+      "A creator selects the asset, historical window, volatility profile, scenario inputs, duration, liquidity settings, and launch parameters.",
     color: "text-[#00ff88]",
     borderColor: "border-[#00ff88]/15",
     glowColor: "shadow-[0_0_40px_rgba(0,255,136,0.04)]",
   },
   {
     number: "02",
-    title: "Events and agents shape the environment",
+    title: "Market launch",
     description:
-      "World events inject volatility while AI agents create market pressure, producing dynamic conditions that evolve in real time.",
+      "The protocol compiles the market into a synthetic trading environment. Initial price path, rules, vault state, and event logic are prepared.",
     color: "text-[#00f5d4]",
     borderColor: "border-[#00f5d4]/15",
     glowColor: "shadow-[0_0_40px_rgba(0,245,212,0.04)]",
   },
   {
     number: "03",
-    title: "Users trade inside the market",
+    title: "Live trading",
     description:
-      "Execute trades, manage positions, and react to events in a time-compressed environment where weeks unfold in minutes.",
+      "Traders buy, sell, long, short, and manage positions while the synthetic price updates from historical structure, market flow, events, and volatility.",
     color: "text-[#ff69b4]",
     borderColor: "border-[#ff69b4]/15",
     glowColor: "shadow-[0_0_40px_rgba(255,105,180,0.04)]",
   },
   {
     number: "04",
-    title: "New data is produced",
+    title: "Settlement",
     description:
-      "Every market generates unique structured data: trading behavior, event impact metrics, execution patterns, and outcome distributions.",
+      "When the market ends, positions are closed or settled, funding is realized, fees are applied, and final outcomes are recorded.",
     color: "text-[#ff00ff]",
     borderColor: "border-[#ff00ff]/15",
     glowColor: "shadow-[0_0_40px_rgba(255,0,255,0.04)]",
@@ -46,10 +46,10 @@ export default function HowItWorksSection() {
       <div className="max-w-[800px] mx-auto">
         <Reveal>
           <SectionHeading
-            label="How it works"
-            title="From initialization to"
-            titleAccent="data output"
-            description="Four steps define the lifecycle of every synthetic market."
+            label="Market lifecycle"
+            title="How a Rewynd market"
+            titleAccent="works"
+            description="A market moves through four stages: creation, launch, live trading, and settlement."
           />
         </Reveal>
 
@@ -85,6 +85,13 @@ export default function HowItWorksSection() {
             ))}
           </div>
         </div>
+
+        <Reveal delay={480}>
+          <p className="mt-10 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 font-mono text-[0.7rem] leading-relaxed text-white/45 text-center sm:text-left">
+            Synthetic price = historical baseline + scenario inputs + volatility
+            + events + trader flow
+          </p>
+        </Reveal>
       </div>
     </section>
   );

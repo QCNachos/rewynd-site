@@ -1,7 +1,9 @@
 import HeroSection from "@/components/sections/HeroSection";
+import SolanaMarketsSection from "@/components/sections/SolanaMarketsSection";
 import WhatIsRewyndSection from "@/components/sections/WhatIsRewyndSection";
 import WhyItMattersSection from "@/components/sections/WhyItMattersSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
+import LaunchMarketSection from "@/components/sections/LaunchMarketSection";
 import AudienceSection from "@/components/sections/AudienceSection";
 import DataLayerSection from "@/components/sections/DataLayerSection";
 import WaitlistSection from "@/components/sections/WaitlistSection";
@@ -16,6 +18,7 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-px bg-gradient-to-r from-transparent via-[#00ff88]/20 to-transparent" />
       </div>
 
+      <SolanaMarketsSection />
       <WhatIsRewyndSection />
 
       <div className="bg-white/[0.015]">
@@ -23,6 +26,7 @@ export default function Home() {
       </div>
 
       <HowItWorksSection />
+      <LaunchMarketSection />
 
       <div className="bg-white/[0.015]">
         <AudienceSection />

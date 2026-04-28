@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import { TrendingUp, Code2, FlaskConical, LucideIcon } from "lucide-react";
+import { TrendingUp, Rocket, Code2, FlaskConical, LucideIcon } from "lucide-react";
 
 interface Audience {
   id: string;
@@ -20,42 +20,56 @@ const audiences: Audience[] = [
     icon: TrendingUp,
     title: "Traders",
     description:
-      "Trade in dynamic, non-repeating market environments. Develop and test strategies against conditions that evolve with every session.",
+      "Trade markets that cannot exist on normal exchanges: compressed historical cycles, alternate scenarios, event-driven assets, and generated market worlds.",
     details: [
-      "Time-compressed market cycles",
-      "AI-driven event volatility",
-      "Real execution dynamics",
-      "Performance analytics per session",
+      "Token-like markets with live prices",
+      "Long / short and position tooling",
+      "Windows built from history + scenarios",
+      "Settlement aligned to protocol rules",
     ],
     color: "#00ff88",
   },
   {
-    id: "builders",
-    icon: Code2,
-    title: "Builders & Agent Teams",
+    id: "creators",
+    icon: Rocket,
+    title: "Market Creators",
     description:
-      "Build, test, and deploy trading agents inside synthetic markets. Access structured environments purpose-built for autonomous execution.",
+      "Launch synthetic markets around assets, eras, narratives, scenarios, or communities. Configure the market, open it to traders, and let the protocol handle the trading environment.",
     details: [
-      "Agent-ready market environments",
-      "Behavioral performance data",
-      "Structured API access",
-      "Multi-agent competition support",
+      "Pick asset, window, and scenario stack",
+      "Tune liquidity, duration, and risk knobs",
+      "Open flow to global traders",
+      "Solana-native launch rails",
     ],
     color: "#00f5d4",
   },
   {
-    id: "funds",
-    icon: FlaskConical,
-    title: "Funds, Labs & Researchers",
+    id: "builders",
+    icon: Code2,
+    title: "Builders / Agents",
     description:
-      "Access proprietary synthetic market data for research, model training, and market intelligence. Data that doesn't exist anywhere else.",
+      "Build agents, tools, and strategies that interact with programmable market environments.",
     details: [
-      "Proprietary behavioral datasets",
-      "Event-impact analytics",
-      "Market microstructure data",
-      "Custom scenario generation",
+      "Programmable market surfaces",
+      "Composable execution hooks",
+      "Signals from live synthetic tapes",
+      "Automation without leaving the venue",
     ],
     color: "#ff69b4",
+  },
+  {
+    id: "funds",
+    icon: FlaskConical,
+    title: "Funds / Researchers",
+    description:
+      "Study real trading behavior inside controlled synthetic markets and access structured market output over time.",
+    details: [
+      "Behavior inside bounded scenarios",
+      "Structured post-trade outputs",
+      "Repeatable experiment windows",
+      "Onchain-first audit trail",
+    ],
+    color: "#ff00ff",
   },
 ];
 
@@ -64,13 +78,13 @@ export default function AudienceSection() {
   const current = audiences[active];
 
   return (
-    <section className="px-[5vw] py-[10vh] z-[1] relative">
+    <section id="audience" className="px-[5vw] py-[10vh] z-[1] relative">
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
           <SectionHeading
             align="left"
-            title="Built for the next generation of"
-            titleAccent="market participants"
+            title="Built for traders, creators,"
+            titleAccent="and teams shipping markets"
             accentGradient="from-[#ff69b4] to-[#ff00ff]"
           />
         </Reveal>
@@ -90,7 +104,9 @@ export default function AudienceSection() {
                 >
                   <audience.icon
                     className="w-5 h-5 shrink-0 transition-colors duration-300"
-                    style={{ color: active === i ? audience.color : "rgba(255,255,255,0.3)" }}
+                    style={{
+                      color: active === i ? audience.color : "rgba(255,255,255,0.3)",
+                    }}
                   />
                   <span
                     className={`text-sm font-medium transition-colors duration-300 ${
@@ -103,9 +119,7 @@ export default function AudienceSection() {
               ))}
             </div>
 
-            <div
-              className="rounded-2xl bg-[rgba(12,13,16,0.8)] border border-white/[0.06] p-8 sm:p-10 backdrop-blur-xl relative overflow-hidden"
-            >
+            <div className="rounded-2xl bg-[rgba(12,13,16,0.8)] border border-white/[0.06] p-8 sm:p-10 backdrop-blur-xl relative overflow-hidden">
               <div
                 className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent to-transparent opacity-60"
                 style={{

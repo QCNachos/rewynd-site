@@ -4,8 +4,11 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const navLinks = [
+  { href: "#markets", label: "Markets" },
   { href: "#protocol", label: "Protocol" },
-  { href: "#why", label: "Why Rewynd" },
+  { href: "#why", label: "Why" },
+  { href: "#how", label: "Lifecycle" },
+  { href: "#launch", label: "Launch" },
   { href: "#data", label: "Data" },
   { href: "#waitlist", label: "Waitlist" },
   { href: "#contact", label: "Contact" },

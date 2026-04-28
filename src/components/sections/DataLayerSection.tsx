@@ -6,37 +6,37 @@ import { Database, BarChart3, Brain, Network } from "lucide-react";
 const dataPoints = [
   {
     icon: BarChart3,
-    title: "Behavioral Data",
+    title: "Tape & flow",
     description:
-      "How traders and agents react to events, volatility shifts, and market structure changes.",
+      "How traders move size through synthetic windows: entries, exits, and reactions to reprices.",
     color: "text-[#00ff88]",
   },
   {
     icon: Brain,
-    title: "Event Impact Metrics",
+    title: "Scenario markers",
     description:
-      "Measured effects of world events on price action, volume, and trader positioning.",
+      "When volatility shifts, events fire, or rules change, the protocol records structured markers alongside price.",
     color: "text-[#00f5d4]",
   },
   {
     icon: Database,
-    title: "Execution Patterns",
+    title: "Settlement artifacts",
     description:
-      "Order flow, timing distributions, risk management behaviors, and outcome correlations.",
+      "Final positions, funding, fees, and outcome states captured for audit and downstream research.",
     color: "text-[#ff69b4]",
   },
   {
     icon: Network,
-    title: "Market Microstructure",
+    title: "Cross-market signals",
     description:
-      "Liquidity dynamics, spread behavior, and depth patterns across synthetic market conditions.",
+      "Aggregated behaviors across launches help tune the next generation of creator parameters.",
     color: "text-[#ff00ff]",
   },
 ];
 
 const sampleData = [
   { field: "session_id", value: "mkt_8f3a2c91", type: "uuid" },
-  { field: "event_type", value: '"fed_rate_decision"', type: "string" },
+  { field: "event_type", value: '"liquidity_taper"', type: "string" },
   { field: "impact_score", value: "0.847", type: "float" },
   { field: "vol_delta", value: "+34.2%", type: "percent" },
   { field: "positions_closed", value: "1,247", type: "int" },
@@ -54,10 +54,10 @@ export default function DataLayerSection() {
             <Reveal>
               <SectionHeading
                 align="left"
-                label="Data Layer"
-                title="More than trading:"
-                titleAccent="a new data engine"
-                description="Every synthetic market generates unique behavioral and market data that can power research, agents, and future data products."
+                label="Data trail"
+                title="Every market creates"
+                titleAccent="a data trail"
+                description="Trading is the core experience. As markets run, Rewynd also captures structured data from price action, trader behavior, event reactions, and market outcomes. This creates a valuable layer for agents, researchers, and future market design."
                 accentGradient="from-[#ff00ff] to-[#ff69b4]"
               />
             </Reveal>
@@ -90,7 +90,7 @@ export default function DataLayerSection() {
                 <div className="w-2 h-2 rounded-full bg-[#ffb800]/60" />
                 <div className="w-2 h-2 rounded-full bg-[#00ff88]/60" />
                 <span className="text-white/20 text-[0.65rem] font-mono ml-2">
-                  event_impact_sample.json
+                  market_trail_sample.json
                 </span>
               </div>
               <div className="p-4 font-mono text-xs space-y-1.5">
@@ -127,13 +127,13 @@ export default function DataLayerSection() {
             variant="featured"
             className="p-8 mt-10"
           >
-            <p className="text-white/60 text-sm leading-relaxed max-w-[600px]">
+            <p className="text-white/60 text-sm leading-relaxed max-w-[640px]">
               <span className="text-[#00ff88] font-semibold">
-                Synthetic markets are both a venue and a data factory.
+                The tape stays primary.
               </span>{" "}
-              Every market session produces structured, labeled datasets that
-              traditional markets cannot generate, creating a compounding data
-              advantage over time.
+              Structured trails accrue beside execution so teams can study
+              behavior, tune scenarios, and ship better markets, without turning
+              Rewynd into a passive dataset shop.
             </p>
           </GlassCard>
         </Reveal>

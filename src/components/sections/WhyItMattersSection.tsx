@@ -1,7 +1,7 @@
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import { Target, Cpu, RefreshCw } from "lucide-react";
+import { Layers, ShieldCheck } from "lucide-react";
 
 export default function WhyItMattersSection() {
   return (
@@ -12,8 +12,8 @@ export default function WhyItMattersSection() {
         <Reveal>
           <SectionHeading
             align="left"
-            title="A new asset class for trading, training, and"
-            titleAccent="market intelligence"
+            title="Synthetic markets built for"
+            titleAccent="trading first"
             accentGradient="from-[#00f5d4] to-[#00d4aa]"
           />
         </Reveal>
@@ -30,21 +30,21 @@ export default function WhyItMattersSection() {
                   Core thesis
                 </span>
                 <h3 className="text-white font-bold text-2xl mt-3 mb-4 tracking-tight leading-snug">
-                  Synthetic markets create a new category of tradable
-                  environments
+                  Token-like markets on Solana for windows that do not exist on
+                  spot venues
                 </h3>
                 <p className="text-white/45 text-sm leading-[1.8] max-w-[480px]">
-                  Every market is unique, time-compressed, and data-rich.
-                  Unlike static backtests or paper trading, synthetic markets
-                  evolve, react to events, and produce outcomes that have never
-                  existed before.
+                  Each Rewynd market is a live, tradable surface: visible price,
+                  positions, fees, and settlement designed around Solana vaults
+                  and onchain-first accounting, with compressed cycles, scenarios, and
+                  narratives without leaving the trading loop.
                 </p>
               </div>
               <div className="flex gap-8 mt-8 pt-6 border-t border-white/[0.04]">
                 {[
-                  { value: "Unique", label: "Every session" },
-                  { value: "Dynamic", label: "Event-driven" },
-                  { value: "Tradable", label: "Full execution" },
+                  { value: "Live", label: "Tape + flow" },
+                  { value: "Token-like", label: "Positions" },
+                  { value: "Solana", label: "Vaults + state" },
                 ].map((stat) => (
                   <div key={stat.label}>
                     <div className="text-[#00ff88] font-bold text-sm mb-0.5">
@@ -60,14 +60,15 @@ export default function WhyItMattersSection() {
           <Reveal delay={200}>
             <GlassCard accentColor="cyan" variant="quiet" className="p-7 h-full">
               <div className="w-10 h-10 rounded-lg bg-[#00f5d4]/[0.08] border border-[#00f5d4]/10 flex items-center justify-center mb-4 text-[#00f5d4]">
-                <Target className="w-4 h-4" />
+                <Layers className="w-4 h-4" />
               </div>
               <h3 className="text-white font-semibold text-sm mb-2">
-                Better Training Environments
+                Creator-owned surfaces
               </h3>
               <p className="text-white/35 text-xs leading-[1.7]">
-                Synthetic markets produce dynamic, non-repeating conditions
-                that static backtesting cannot replicate.
+                Selected creators configure assets, windows, scenarios, and
+                parameters, then open the market to traders on the same
+                execution rails.
               </p>
             </GlassCard>
           </Reveal>
@@ -75,14 +76,15 @@ export default function WhyItMattersSection() {
           <Reveal delay={300}>
             <GlassCard accentColor="pink" variant="quiet" className="p-7 h-full">
               <div className="w-10 h-10 rounded-lg bg-[#ff69b4]/[0.08] border border-[#ff69b4]/10 flex items-center justify-center mb-4 text-[#ff69b4]">
-                <Cpu className="w-4 h-4" />
+                <ShieldCheck className="w-4 h-4" />
               </div>
               <h3 className="text-white font-semibold text-sm mb-2">
-                Proprietary Synthetic Data
+                Transparent settlement path
               </h3>
               <p className="text-white/35 text-xs leading-[1.7]">
-                Every trade and event generates structured behavioral data
-                that doesn&apos;t exist anywhere else.
+                Outcomes, funding, and fees are designed to land onchain at
+                resolution. Traders see the same lifecycle they expect from
+                serious crypto markets.
               </p>
             </GlassCard>
           </Reveal>
@@ -90,13 +92,11 @@ export default function WhyItMattersSection() {
 
         <Reveal delay={400}>
           <div className="mt-8 flex items-center gap-4 p-5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-            <RefreshCw className="w-5 h-5 text-[#ff00ff] shrink-0" />
-            <p className="text-white/50 text-sm leading-relaxed">
-              <span className="text-white/70 font-medium">
-                Protocol-native flywheel:
-              </span>{" "}
-              More markets create more data. More data creates better agents.
-              Better agents attract more traders. The system compounds.
+            <p className="text-white/45 text-sm leading-relaxed">
+              <span className="text-white/70 font-medium">Trading is the core loop.</span>{" "}
+              As markets run, structured outputs accumulate for agents,
+              researchers, and the next generation of market design, secondary to
+              the tape, not a replacement for it.
             </p>
           </div>
         </Reveal>

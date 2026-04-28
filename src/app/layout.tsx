@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rewynd — Synthetic Markets Protocol",
+  title: "Rewynd: Synthetic Markets Protocol",
   description:
-    "Rewynd creates time-compressed, tradable synthetic markets shaped by historical structure, world events, and agent behavior.",
+    "Trading-first synthetic markets protocol on Solana. Token-like markets, creator launches, historical structure, scenario inputs, live flow, onchain-first settlement.",
   icons: {
     icon: [
       { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
@@ -29,18 +29,18 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Rewynd — Synthetic Markets Protocol",
+    title: "Rewynd: Synthetic Markets Protocol",
     description:
-      "Time-compressed, tradable synthetic markets shaped by historical structure, world events, and agent behavior.",
+      "Trading-first synthetic markets on Solana, with token-like assets, creator launches, live trader flow, onchain-first settlement.",
     siteName: "Rewynd",
     type: "website",
     url: "https://rewynd.tech",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rewynd — Synthetic Markets Protocol",
+    title: "Rewynd: Synthetic Markets Protocol",
     description:
-      "Time-compressed, tradable synthetic markets shaped by historical structure, world events, and agent behavior.",
+      "Trading-first synthetic markets on Solana, with token-like assets, creator launches, live trader flow, onchain-first settlement.",
   },
 };
 

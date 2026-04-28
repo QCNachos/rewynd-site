@@ -11,9 +11,10 @@ import Reveal from "@/components/ui/Reveal";
 
 const roleOptions = [
   { value: "trader", label: "Trader" },
-  { value: "builder", label: "Builder" },
-  { value: "fund", label: "Fund / Investor" },
-  { value: "research", label: "Research / Lab" },
+  { value: "market_creator", label: "Market Creator" },
+  { value: "builder_agent", label: "Builder / Agent Team" },
+  { value: "fund_investor", label: "Fund / Investor" },
+  { value: "research_lab", label: "Research / Lab" },
   { value: "other", label: "Other" },
 ];
 
@@ -102,9 +103,9 @@ export default function WaitlistSection() {
                 waitlist
               </span>
             </h2>
-            <p className="text-[clamp(1rem,1.4vw,1.1rem)] text-white/45 max-w-[500px] mx-auto leading-relaxed">
-              We&apos;re onboarding early users interested in trading, agents,
-              and synthetic market data.
+            <p className="text-[clamp(1rem,1.4vw,1.1rem)] text-white/45 max-w-[520px] mx-auto leading-relaxed">
+              Join early access for traders, market creators, builders, and
+              funds exploring synthetic onchain markets.
             </p>
           </div>
         </Reveal>

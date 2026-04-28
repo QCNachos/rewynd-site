@@ -1,7 +1,7 @@
 import GlassCard from "@/components/ui/GlassCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
-import { Database, Zap, ArrowRightLeft } from "lucide-react";
+import { Database, SlidersHorizontal, ArrowRightLeft } from "lucide-react";
 
 export default function WhatIsRewyndSection() {
   return (
@@ -9,9 +9,9 @@ export default function WhatIsRewyndSection() {
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
           <SectionHeading
-            title="Markets that evolve, react, and"
-            titleAccent="generate new outcomes."
-            description="Trade inside generated market environments shaped by real structure, driven by world events, and fully executable."
+            title="Structure, scenarios, and flow"
+            titleAccent="under every tape"
+            description="Markets start from historical baseline, run under explicit rules, and update from live trading, so the surface feels like a normal crypto market while the engine stays synthetic."
           />
         </Reveal>
 
@@ -26,13 +26,12 @@ export default function WhatIsRewyndSection() {
                 <Database className="w-5 h-5" />
               </div>
               <h3 className="text-white font-bold text-xl mb-3 tracking-tight">
-                Historical Structure
+                Historical structure
               </h3>
               <p className="text-white/45 text-sm leading-[1.8]">
-                Markets are initialized from real historical data patterns,
-                preserving the structural dynamics that shaped actual price
-                movements. Every market world starts from a foundation of real
-                data, not random noise.
+                Markets initialize from real historical patterns so the opening
+                dynamics and baseline path respect how the asset actually
+                behaved; then trading and scenarios take over.
               </p>
             </GlassCard>
           </Reveal>
@@ -42,16 +41,16 @@ export default function WhatIsRewyndSection() {
               <GlassCard accentColor="cyan" className="p-8 h-full">
                 <div className="flex items-start gap-5">
                   <div className="w-11 h-11 rounded-xl bg-[#00f5d4]/[0.08] border border-[#00f5d4]/10 flex items-center justify-center shrink-0 text-[#00f5d4]">
-                    <Zap className="w-5 h-5" />
+                    <SlidersHorizontal className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-base mb-2 tracking-tight">
-                      Generative World Events
+                      Scenario inputs & volatility
                     </h3>
                     <p className="text-white/40 text-sm leading-[1.7]">
-                      AI-driven events inject volatility and narrative into each
-                      market world, creating emergent dynamics no static replay
-                      can produce.
+                      Rules, events, constraints, and volatility knobs shape how
+                      far price can drift from the baseline while the window is
+                      open.
                     </p>
                   </div>
                 </div>
@@ -66,12 +65,12 @@ export default function WhatIsRewyndSection() {
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-base mb-2 tracking-tight">
-                      Tradable Execution
+                      Live trader flow
                     </h3>
                     <p className="text-white/40 text-sm leading-[1.7]">
-                      Every synthetic market is fully tradable. Execute
-                      positions, manage risk, and generate real behavioral data
-                      from every trade.
+                      Orders, positions, and two-way flow feed back into the
+                      synthetic price path alongside the scripted inputs and the
+                      same actions you expect from a token-like market.
                     </p>
                   </div>
                 </div>
